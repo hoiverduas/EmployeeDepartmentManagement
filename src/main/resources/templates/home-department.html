@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+  <title>Department List</title>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .container {
+      max-width: 1000px;
+    }
+    .card {
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      margin-bottom: 20px;
+    }
+    .card-header {
+      font-size: 1.5rem;
+      color: #343a40;
+      border-bottom: 2px solid #e9ecef;
+    }
+    .btn-primary, .btn-warning, .btn-danger {
+      border-radius: 5px;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    .btn-warning {
+      background-color: #ffc107;
+      border: none;
+    }
+    .btn-warning:hover {
+      background-color: #e0a800;
+      transform: scale(1.05);
+    }
+    .btn-danger {
+      background-color: #dc3545;
+      border: none;
+    }
+    .btn-danger:hover {
+      background-color: #c82333;
+      transform: scale(1.05);
+    }
+    table th, table td {
+      text-align: center;
+      vertical-align: middle;
+    }
+    table {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .table th {
+      background-color: #f1f1f1;
+      color: #343a40;
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      Department List
+    </div>
+    <div class="card-body">
+      <a th:href="@{/departments/create}" class="btn btn-primary mb-3">New Department</a>
+      <a th:href="@{/panel}" class="btn btn-secondary mb-3">Back to Panel</a>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Code</th>
+          <th scope="col">Creation Date</th>
+          <th scope="col">Modification Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="department : ${departments}">
+          <td th:text="${department.departmentName}">departmentName</td>
+          <td th:text="${department.departmentCode}">departmentCode</td>
+          <td th:text="${department.creationTimestamp}">creationTimestamp</td>
+          <td th:text="${department.modificationTimestamp}">modificationTimestamp</td>
+          <td>
+            <div class="d-flex justify-content-center">
+              <a th:href="@{/departments/updateDepartment/{id}(id=${department.id})}" class="btn btn-warning btn-sm me-2">Update</a>
+              <a th:href="@{/departments/deleteDepartment/{id}(id=${department.id})}" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+

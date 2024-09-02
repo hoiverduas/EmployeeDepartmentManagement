@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Management Panel</title>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .container {
+      max-width: 1140px;
+    }
+    .panel-card {
+      text-align: center;
+      padding: 30px;
+      margin: 20px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .panel-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+    .panel-card h2 {
+      margin-bottom: 20px;
+      font-size: 1.75rem;
+      color: #343a40;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      padding: 10px 20px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      padding: 10px 20px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      background-color: #5a6268;
+      transform: scale(1.05);
+    }
+    .text-center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h1 class="mb-4 text-center">Management Panel</h1>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="panel-card">
+        <h2>Employees</h2>
+        <a href="/employees" class="btn btn-primary">View Employees</a>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="panel-card">
+        <h2>Departments</h2>
+        <a href="/departments" class="btn btn-primary">View Departments</a>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+</body>
+</html>
+
